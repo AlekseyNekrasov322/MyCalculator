@@ -1,8 +1,8 @@
 package com.company;
 
 public class Number {
-    private int value;
-    private NumberType type;
+    private final int value;
+    private final NumberType type;
 
     public Number(int value, NumberType type) {
         this.value = value;

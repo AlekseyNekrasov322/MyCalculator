@@ -55,11 +55,11 @@ public class NumberService {
     }
 
     public static String toRomanNumber(int number) {
-        int i = romanString.floorKey(number);
-        if (number == i) {
+        int l = romanString.floorKey(number);
+        if (number == l) {
             return romanString.get(number);
         }
-        return romanString.get(i) + toRomanNumber(number - i);
+        return romanString.get(l) + toRomanNumber(number - l);
     }
 
     public static int toArabicNumber(String roman) throws Exception {
@@ -74,17 +74,18 @@ public class NumberService {
                 throw new Exception("Неверный римский символ");
             }
 
-            i++;
-            if (i == roman.length()) {
-                result += num;
-            } else {
-                int nextNum = letterToNumber(roman.charAt(i));
+            if (i + 1 < roman.length()) {
+                int nextNum = letterToNumber(roman.charAt(i + 1));
                 if (nextNum > num) {
                     result += (nextNum - num);
-                    i++;
+                    i += 2; // Пропускаем следующую цифру, так как она уже учтена
                 } else {
                     result += num;
+                    i++;
                 }
+            } else {
+                result += num;
+                i++;
             }
         }
 
