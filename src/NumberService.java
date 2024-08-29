@@ -78,7 +78,7 @@ public class NumberService {
                 int nextNum = letterToNumber(roman.charAt(i + 1));
                 if (nextNum > num) {
                     result += (nextNum - num);
-                    i += 2; // Пропускаем следующую цифру, так как она уже учтена
+                    i += 2;
                 } else {
                     result += num;
                     i++;

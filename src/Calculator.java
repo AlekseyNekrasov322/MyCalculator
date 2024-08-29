@@ -36,7 +36,6 @@ public class Calculator {
                 break;
             }
 
-            // Проверка и преобразование ввода
             if (!line.matches("\\d+ [+\\-*/] \\d+") && !line.matches("[IVXLCDM]+ [+\\-*/] [IVXLCDM]+")) {
                 System.out.println("Неверный формат ввода. Используйте формат 'число оператор число' с пробелами.");
                 continue;
